@@ -164,11 +164,10 @@ def cleanText(T, fix={}, lemma=False, lan='id', stops = set(), symbols_remove = 
             for j, token in enumerate(listKata):
                 if token in fix.keys():
                     listKata[j] = fix[token]
-        if stops:
-            for token in listKata:
+        for token in listKata:    
+            if stops:
                 listKata = [tok for tok in listKata if tok not in stops and len(token)>=min_charLen]
-        else:
-            for token in listKata:
+            else:
                 listKata = [tok for tok in listKata if len(token)>=min_charLen]
         
         listKataFixed = [] 
